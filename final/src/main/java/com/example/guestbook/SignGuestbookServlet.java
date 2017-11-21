@@ -28,6 +28,7 @@ import com.google.appengine.api.users.UserServiceFactory;
 
 import java.io.IOException;
 import java.util.Date;
+import java.util.List;
 
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -62,6 +63,14 @@ public class SignGuestbookServlet extends HttpServlet {
 
     // Use Objectify to save the greeting and now() is used to make the call synchronously as we
     // will immediately get a new page using redirect and we want the data to be present.
+    List<Greeting> greetings = ObjectifyService.ofy().load().type(Greeting.class).order("date").list();
+    while(greetings.size() > 4) {
+    	int index = greetings.size();
+    	Greeting old = greetings.get(0);
+    	greetings.remove(0);
+    	System.out.println("\n\n\n\n\n\n\n\n"+old.date);
+    	ObjectifyService.ofy().delete().entity(old).now();
+    }
     ObjectifyService.ofy().save().entity(greeting).now();
 
     resp.sendRedirect("/guestbook.jsp?guestbookName=" + guestbookName);
