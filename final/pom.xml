@@ -7,6 +7,14 @@
 
     <groupId>com.example.guestbook</groupId>
     <artifactId>guestbook</artifactId>
+    
+    <repositories>
+	    <repository>
+		  <id>maven-restlet</id>
+		  <name>Public online Restlet repository</name>
+		  <url>http://maven.restlet.com</url>
+		</repository>
+    </repositories>
 
 <!-- [START set_versions] -->
     <properties>
@@ -47,6 +55,44 @@
 		    <artifactId>bcprov-jdk15on</artifactId>
 		    <version>1.58</version>
 		</dependency>
+        <!-- restlet -->
+        <dependency>
+            <groupId>org.restlet.gae</groupId>
+            <artifactId>org.restlet</artifactId>
+            <version>2.3.12</version>
+        </dependency>
+        <dependency>
+            <groupId>org.restlet.gae</groupId>
+            <artifactId>org.restlet.ext.gae</artifactId>
+            <version>2.3.12</version>
+        </dependency>
+        <dependency>
+            <groupId>org.restlet.gae</groupId>
+            <artifactId>org.restlet.ext.xml</artifactId>
+            <version>2.3.12</version>
+        </dependency>
+        <dependency>
+            <groupId>org.restlet.gae</groupId>
+            <artifactId>org.restlet.ext.servlet</artifactId>
+            <version>2.3.12</version>
+        </dependency>
+        <dependency>
+            <groupId>org.restlet.gae</groupId>
+            <artifactId>org.restlet.lib.org.json</artifactId>
+            <version>2.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.restlet.gae</groupId>
+            <artifactId>org.restlet.ext.jackson</artifactId>
+            <version>2.3.12</version>
+        </dependency>
+        <dependency>
+            <groupId>org.restlet.gae</groupId>
+            <artifactId>org.restlet.ext.atom</artifactId>
+            <version>2.3.12</version>
+        </dependency>
+
+
         
 
 <!-- [START Objectify_Dependencies] -->
